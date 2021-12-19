@@ -6,6 +6,7 @@ import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 import org.springframework.beans.BeanUtils;
+import org.springframework.context.annotation.Bean;
 import pl.kzapart.item.command.api.commands.AddItemCommand;
 import pl.kzapart.item.command.api.events.AddItemEvent;
 
@@ -16,6 +17,9 @@ public class ItemAggregate {
     @AggregateIdentifier
     private Long ID_GUID;
     private String name;
+
+    public ItemAggregate() {
+    }
 
 
     @CommandHandler
@@ -28,8 +32,6 @@ public class ItemAggregate {
         AggregateLifecycle.apply(addItemEvent);
     }
 
-    public ItemAggregate() {
-    }
 
     @EventSourcingHandler
     public void on(AddItemEvent addItemEvent) {
