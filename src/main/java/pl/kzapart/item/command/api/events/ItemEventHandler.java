@@ -10,7 +10,6 @@ import pl.kzapart.item.command.api.data.Item;
 import pl.kzapart.item.command.api.data.ItemRepository;
 
 @Component
-@ProcessingGroup("product")
 public class ItemEventHandler {
 
     private ItemRepository itemRepository;
